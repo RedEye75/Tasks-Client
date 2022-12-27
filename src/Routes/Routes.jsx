@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddTask from "../components/AddTask";
+import Blogs from "../components/Blogs";
 import CompletedTasks from "../components/CompletedTasks";
 import Home from "../components/Home";
 import MyTasks from "../components/MyTasks";
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/completedTasks",
         element: <CompletedTasks />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
       },
     ],
   },

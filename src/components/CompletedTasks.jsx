@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CompletedTasks = () => {
   return (
     <div className="mt-14">
-      <h2 className="font-bold text-3xl text-blue-800">Completed Task</h2>
+      <h2 className="font-bold text-3xl mt-32 text-blue-800">Completed Task</h2>
       <div className="lg:grid grid-cols-2 block mt-14 ">
         <div>
           <img
