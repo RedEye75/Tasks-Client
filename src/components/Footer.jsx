@@ -3,18 +3,18 @@ import { FaTasks } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className=" bottom-0 bg-gray-700 mt-20">
+    <div className=" bottom-0 bg-black rounded-t-md mt-20">
       <footer class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
           <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <FaTasks class="ml-3 text-3xl font-bold" />{" "}
-            <span class="ml-2 text-4xl font-bold">AceToDo</span>
+            <FaTasks class="ml-3 text-3xl text-gray-500 font-bold" />{" "}
+            <span class="ml-2 text-4xl text-gray-500 font-bold">AceToDo</span>
           </a>
-          <p class="text-sm text-black sm:ml-4 font-bold sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+          <p class="text-sm text-gray-500 sm:ml-4 font-bold sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
             © 2023 AceToDO —
             <a
               href="https://twitter.com/knyttneve"
-              class="text-black font-bold ml-1"
+              class="text-gray-500 font-bold ml-1"
               rel="noopener noreferrer"
               target="_blank"
             >
