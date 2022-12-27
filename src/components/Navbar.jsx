@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaTasks } from "react-icons/fa";
 import {
   Navbar,
   MobileNav,
@@ -33,12 +34,11 @@ export default function Example() {
   );
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl bg-cyan-900  rounded-md shadow-lg py-2 px-4 lg:px-8 lg:py-4">
+    <Navbar className="mx-auto max-w-screen-xl bg-white  rounded-md shadow-lg py-2 px-4 lg:px-8 lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <Link className="mr-4 cursor-pointer py-1.5 font-normal">
-          <span className="text-3xl font-bold font-serif bg-gradient-to-r from-pink-300 via-purple-500 to-violet-600 bg-clip-text   text-transparent sm:text-5xl">
-            AceToDo
-          </span>
+        <Link className="mr-4 flex cursor-pointer py-1.5 font-normal">
+          <FaTasks className="text-3xl mt-1 mr-1 font-bold font-serif " />
+          <span className="text-3xl font-bold  ">AceToDo</span>
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <div>
@@ -91,8 +91,11 @@ export default function Example() {
       </div>
       <MobileNav open={openNav}>
         {navList}
-        <Button variant="gradient" size="sm" fullWidth className="mb-2">
-          <span>Buy Now</span>
+        <Button fullWidth className="mb-2">
+          <span>Sign In</span>
+        </Button>
+        <Button fullWidth className="mb-2 bg-green-900 ">
+          <span>Sign Up</span>
         </Button>
       </MobileNav>
     </Navbar>
