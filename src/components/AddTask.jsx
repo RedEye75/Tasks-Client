@@ -86,7 +86,7 @@ const AddTask = () => {
           <input
             className="mx-auto inline-flex gap-3 mt-3 items-center rounded border-2 border-[#ff7043] bg-[#ff7043] px-8 py-2 font-bold  text-white transition-colors hover:bg-transparent hover:text-[#171515] focus:outline-none focus:ring active:opacity-75"
             type="submit"
-            value="Submit"
+            value="+ Add Task"
           />
         </form>
       </div>
