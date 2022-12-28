@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { FaTasks } from "react-icons/fa";
+// import { FaTasks } from "react-icons/fa";
+import { MdOutlineAddTask } from "react-icons/md";
 
 import {
   Navbar,
@@ -32,7 +33,8 @@ export default function Example() {
       <Link to={"/myTasks"} className="p-1 text-black font-bold">
         My Task
       </Link>
-      <Link to={"/completedTasks"} className="p-1 text-black font-bold">
+      <Link to={"/completedTasks"} className="p-1  text-black font-bold">
+        {" "}
         Completed Task
       </Link>
     </ul>
@@ -41,21 +43,28 @@ export default function Example() {
   return (
     <Navbar className="mx-auto max-w-screen-xl fixed top-0 bg-white  rounded-md shadow-lg py-2 px-4 lg:px-8 lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <Link className="mr-4 flex cursor-pointer py-1.5 font-normal">
-          {/* <FaTasks className="text-3xl mt-1 mr-1 font-bold font-serif " /> */}
-          <span className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 font-bold  ">
-            <img src="../../assets/task.png" alt="" />
+        <Link
+          to={"/"}
+          className="mr-4 flex gap-2 cursor-pointer py-1.5 font-normal"
+        >
+          {/* <FaTasks className="text-3xl mt-1 mr-1 font-bold font-serif " />{" "} */}
+          {/* <img src={"../../assets/task.png"} alt="" /> */}
+          <MdOutlineAddTask className="text-5xl  text-blue-800" />
+          <span
+            id="company"
+            className="text-4xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 font-bold  "
+          >
             AceToDo
           </span>
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <div>
-          <Link>
+          <Link to={"/signIn"}>
             <Button className="hidden mr-3 bg-[#e65100] lg:inline-block">
               Sign In
             </Button>
           </Link>
-          <Link>
+          <Link to={"/signUp"}>
             <Button className="hidden bg-[#1b5e20] lg:inline-block">
               Sign Up
             </Button>
@@ -101,12 +110,16 @@ export default function Example() {
       </div>
       <MobileNav open={openNav}>
         {navList}
-        <Button fullWidth className="mb-2">
-          <span>Sign In</span>
-        </Button>
-        <Button fullWidth className="mb-2 bg-green-900 ">
-          <span>Sign Up</span>
-        </Button>
+        <Link to={"/signIn"}>
+          <Button fullWidth className="mb-2">
+            <span>Sign In</span>
+          </Button>
+        </Link>
+        <Link to={"/signUp"}>
+          <Button fullWidth className="mb-2 bg-green-900 ">
+            <span>Sign Up</span>
+          </Button>
+        </Link>
       </MobileNav>
     </Navbar>
   );

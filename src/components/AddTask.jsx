@@ -13,7 +13,9 @@ const AddTask = () => {
   };
   return (
     <div>
-      <h2 className="font-bold text-3xl mt-32 text-blue-800">Create a task</h2>
+      <h2 id="task-info" className="font-bold text-3xl mt-32 text-blue-800">
+        Create a task
+      </h2>
 
       <div className="mt-14 lg:flex justify-around block">
         <div>

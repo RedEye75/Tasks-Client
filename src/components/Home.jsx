@@ -8,20 +8,36 @@ const Home = () => {
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
             <img
+              data-aos="fade-right"
+              data-aos-duration="3000"
               class="object-cover object-center rounded"
               alt="hero"
               src="https://img.freepik.com/free-vector/scrum-board-concept-illustration_114360-1570.jpg?w=1060&t=st=1672163052~exp=1672163652~hmac=4a53fd7dcc5b7c5db0dd4869622753bf49cb962fee06c1aeb9d7d069933e40fd"
             />
           </div>
           <div class="lg:flex-grow md:w-1/2  lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-            <h1 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent mb-5 sm:text-5xl">
-              AceToDo brings all your tasks and tools in combination.
+            <h1
+              data-aos="fade-down"
+              data-aos-duration="3000"
+              id="bio"
+              class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent mb-5 sm:text-5xl"
+            >
+              AceToDo brings all your tasks and tools in combination
             </h1>
-            <p class="mb-8   font-bold  text-xl text-black">
+            <p
+              data-aos="fade-left"
+              data-aos-duration="3000"
+              id="slogan"
+              class="mb-8 font-bold  text-xl text-black"
+            >
               This is a simple task manager that makes it easy for you to keep
               track all of your tasks.
             </p>
-            <div class="flex justify-center">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="2000"
+              class="flex justify-center"
+            >
               <Link to={"/addTask"}>
                 <button
                   type="button"

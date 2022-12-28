@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 const MyTasks = () => {
   return (
     <div className="">
-      <h2 className="font-bold text-3xl mt-32 text-blue-800">My Tasklist</h2>
+      <h2 id="task-info" className="font-bold text-3xl mt-32 text-blue-800">
+        My Tasklist
+      </h2>
       <div className="lg:grid grid-cols-2 block mt-14 ">
         <div>
           <img
