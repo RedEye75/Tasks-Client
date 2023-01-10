@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
-// import { FaTasks } from "react-icons/fa";
-import { MdOutlineAddTask } from "react-icons/md";
-
+import { useState, useEffect, useContext } from "react";
+import { FaUser } from "react-icons/fa";
 import {
   Navbar,
   MobileNav,
@@ -10,8 +8,10 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 export default function Example() {
+  const { user, logOut } = useContext(AuthContext);
   const [openNav, setOpenNav] = useState(false);
 
   useEffect(() => {
@@ -20,6 +20,11 @@ export default function Example() {
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((e) => console.error(e));
+  };
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -41,15 +46,19 @@ export default function Example() {
   );
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl fixed top-0 bg-white  rounded-md shadow-lg py-2 px-4 lg:px-8 lg:py-4">
+    <Navbar className="mx-auto   fixed top-0 bg-white  rounded-md shadow-lg py-2 px-4 lg:px-8 lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Link
           to={"/"}
           className="mr-4 flex gap-2 cursor-pointer py-1.5 font-normal"
         >
           {/* <FaTasks className="text-3xl mt-1 mr-1 font-bold font-serif " />{" "} */}
-          {/* <img src={"../../assets/task.png"} alt="" /> */}
-          <MdOutlineAddTask className="text-5xl  text-blue-800" />
+          {/* <MdOutlineAddTask className="text-5xl  text-blue-800" /> */}{" "}
+          <img
+            className="h-10"
+            src="https://cdn-icons-png.flaticon.com/128/762/762686.png"
+            alt=""
+          />
           <span
             id="company"
             className="text-4xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 font-bold  "
@@ -58,17 +67,52 @@ export default function Example() {
           </span>
         </Link>
         <div className="hidden lg:block">{navList}</div>
-        <div>
-          <Link to={"/signIn"}>
-            <Button className="hidden mr-3 bg-[#e65100] lg:inline-block">
-              Sign In
-            </Button>
-          </Link>
-          <Link to={"/signUp"}>
-            <Button className="hidden bg-[#1b5e20] lg:inline-block">
-              Sign Up
-            </Button>
-          </Link>
+        <div className="flex">
+          {user?.photoURL ? (
+            <div className="">
+              <img
+                className="h-10 w-10 rounded-md mr-3 hidden lg:inline-block"
+                src={user.photoURL}
+                alt=""
+              />
+              {/* <div class="m-3">
+                <h3
+                  id="slogan"
+                  class="font-semibold text-gray-800 dark:text-white"
+                >
+                  {user.displayName}
+                </h3>
+                <p id="bio" class="text-sm font-medium text-gray-900">
+                  {user.email}
+                </p>
+              </div> */}
+            </div>
+          ) : (
+            <FaUser className=" mr-3  rounded-full w-10 h-10" />
+          )}
+          {user?.uid ? (
+            <Link>
+              <Button
+                onClick={handleLogOut}
+                className="hidden mr-3  bg-[#aa1b1b] lg:inline-block"
+              >
+                Sign Out
+              </Button>
+            </Link>
+          ) : (
+            <div>
+              <Link to={"/signIn"}>
+                <Button className="hidden mr-3 bg-[#e65100] lg:inline-block">
+                  Sign In
+                </Button>
+              </Link>
+              <Link to={"/signUp"}>
+                <Button className="hidden bg-[#1b5e20] lg:inline-block">
+                  Sign Up
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
         <IconButton
           variant="text"
@@ -108,7 +152,7 @@ export default function Example() {
           )}
         </IconButton>
       </div>
-      <MobileNav open={openNav}>
+      <MobileNav className="bg-white" open={openNav}>
         {navList}
         <Link to={"/signIn"}>
           <Button fullWidth className="mb-2">

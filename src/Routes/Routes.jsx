@@ -7,6 +7,7 @@ import MyTasks from "../components/MyTasks";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import Root from "../layout/Root";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -19,15 +20,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/addTask",
-        element: <AddTask />,
+        element: (
+          <PrivateRoutes>
+            <AddTask />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/myTasks",
-        element: <MyTasks />,
+        element: (
+          <PrivateRoutes>
+            <MyTasks />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/completedTasks",
-        element: <CompletedTasks />,
+        element: (
+          <PrivateRoutes>
+            <CompletedTasks />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/blogs",

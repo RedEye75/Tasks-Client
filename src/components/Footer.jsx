@@ -8,7 +8,12 @@ const Footer = () => {
       <footer class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
           <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <MdOutlineAddTask className="text-5xl  text-blue-800" />
+            {/* <MdOutlineAddTask className="text-5xl  text-blue-800" /> */}
+            <img
+              className="h-10"
+              src="https://cdn-icons-png.flaticon.com/128/762/762686.png"
+              alt=""
+            />
             <span class="ml-2 text-4xl font-serif text-gray-500 font-bold">
               AceToDo
             </span>

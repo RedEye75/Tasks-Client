@@ -20,15 +20,17 @@ const Home = () => {
               data-aos="fade-down"
               data-aos-duration="3000"
               id="bio"
-              class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent mb-5 sm:text-5xl"
+              class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text p-5 text-3xl font-extrabold text-transparent mb-5 sm:text-5xl"
             >
-              AceToDo brings all your tasks and tools in combination
+              {/* AceToDo brings all your tasks and tools together */}
+              Be Mercury fast, when you have a task. AceToDo want to be your
+              task management manager.
             </h1>
             <p
               data-aos="fade-left"
               data-aos-duration="3000"
               id="slogan"
-              class="mb-8 font-bold  text-xl text-black"
+              class="mb-8 font-bold pl-5 text-xl text-black"
             >
               This is a simple task manager that makes it easy for you to keep
               track all of your tasks.
@@ -36,7 +38,7 @@ const Home = () => {
             <div
               data-aos="fade-up"
               data-aos-duration="2000"
-              class="flex justify-center"
+              class="flex pl-5 justify-center"
             >
               <Link to={"/addTask"}>
                 <button

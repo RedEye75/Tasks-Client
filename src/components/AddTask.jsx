@@ -1,15 +1,45 @@
 import { Input, Textarea } from "@material-tailwind/react";
-import React from "react";
+import React, { useState } from "react";
 // import { Input } from "@material-tailwind/react";
 const AddTask = () => {
+  // const [task, setTask] = useState({});
+  const imageHostKey = process.env.REACT_APP_imgbb_key;
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
+
     const photo = form.image.files[0];
+    const formData = new FormData();
+    formData.append("image", photo);
+    const uri = `"https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
+    fetch(uri, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => console.log("hello"));
 
     const taskTitle = form.title.value;
     const bio = form.description.value;
+
     console.log(bio, photo, taskTitle);
+
+    const Task = {
+      image: photo,
+      title: taskTitle,
+      description: bio,
+    };
+
+    fetch("http://localhost:5000/addTask", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(Task),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <div>
@@ -78,10 +108,11 @@ const AddTask = () => {
                 type="file"
                 name="image"
                 className="sr-only"
+                required
               />
             </label>
-            <Input name="title" label="Task title" />
-            <Textarea name="description" label="Task description" />
+            <Input name="title" label="Task title" required />
+            <Textarea name="description" label="Task description" required />
           </div>
           <input
             className="mx-auto inline-flex gap-3 mt-3 items-center rounded border-2 border-[#ff7043] bg-[#ff7043] px-8 py-2 font-bold  text-white transition-colors hover:bg-transparent hover:text-[#171515] focus:outline-none focus:ring active:opacity-75"

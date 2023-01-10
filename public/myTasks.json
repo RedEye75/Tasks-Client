@@ -1,0 +1,23 @@
+[
+  {
+    "id": "01",
+    "image": "https://img.freepik.com/free-photo/people-holding-linkedin-icon-tablet_53876-71146.jpg?w=826&t=st=1672292277~exp=1672292877~hmac=40d93aa17d3396e37fefdd214326eb2ecfff9a2a00ad37221b81ae1ecccc2f7b",
+    "title": "Linkedin account",
+    "description": "Make your virtual cv, its called linkedin & make sure your profile image look like professional.",
+    "status": "complete"
+  },
+  {
+    "id": "02",
+    "image": "https://img.freepik.com/free-photo/african-american-applicant-holding-resume-job-interview-close-up-view_1163-4641.jpg?w=1060&t=st=1672292354~exp=1672292954~hmac=93e4ad5cb55a40ec261745572982c0a0fb2732e53a34a77e6dc8c2b81f79ddaf",
+    "title": "make your resume",
+    "description": "3pm er moddhe resume make korte hobe",
+    "status": "complete"
+  },
+  {
+    "id": "03",
+    "image": "https://img.freepik.com/free-photo/are-you-covered-healthcare-insurance-protection-concept_53876-122704.jpg?w=1060&t=st=1672292377~exp=1672292977~hmac=7113ef4ce967e63b258beaf0bebd3910a9a0eb97c427c6507f691386f80cf744",
+    "title": "cover letter",
+    "description": "5pm er moddhe banaite hobe.",
+    "status": "incomplete"
+  }
+]

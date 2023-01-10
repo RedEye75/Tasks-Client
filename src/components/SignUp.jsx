@@ -1,8 +1,48 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../Context/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+import { toast } from "react-hot-toast";
 
 const SignUp = () => {
+  const { createUser, providerLogin, updateUserProfile } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
+  // Google authentication
+  const googleProvider = new GoogleAuthProvider();
+  const googlesignIn = () => {
+    return providerLogin(googleProvider);
+  };
+
+  // email pass authentication
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.username.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const image = form.img.files[0];
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success(" Successfully Registered");
+        form.reset();
+        navigate("/");
+      })
+      .catch((e) => {
+        toast.error(`${e}`);
+      });
+
+    const userInfo = {
+      displayName: name,
+      // photoURL:
+    };
+    updateUserProfile(userInfo).then(() => {});
+  };
+
   return (
     <div className="min-h-screen">
       <h3 id="task-info" className="font-bold text-3xl mt-32 text-blue-800">
@@ -33,11 +73,12 @@ const SignUp = () => {
                 Join With Us
               </h3>
 
-              <form>
+              <form onSubmit={handleSignUp}>
                 <div class="w-full mt-4">
                   <input
                     class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-black rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
                     type="text"
+                    name="username"
                     placeholder="Username"
                     aria-label="Username"
                     required
@@ -48,6 +89,7 @@ const SignUp = () => {
                   <input
                     class="block w-full border-black px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
                     type="email"
+                    name="email"
                     placeholder="Email Address"
                     aria-label="Email Address"
                     required
@@ -57,6 +99,7 @@ const SignUp = () => {
                   <input
                     class="block w-full border-black px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
                     type="password"
+                    name="password"
                     placeholder="Password"
                     aria-label="Password"
                     required
@@ -116,6 +159,7 @@ const SignUp = () => {
                     <input
                       id="photo-dropbox"
                       type="file"
+                      name="img"
                       class="sr-only"
                       required
                     />
@@ -139,6 +183,7 @@ const SignUp = () => {
               </div>
               <div>
                 <button
+                  onClick={googlesignIn}
                   type="submit"
                   class="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-black rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                 >
